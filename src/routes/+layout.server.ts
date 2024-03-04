@@ -1,0 +1,1 @@
+//get cookies in load function
