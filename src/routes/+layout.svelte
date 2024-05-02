@@ -1,20 +1,35 @@
-<script>
+<script lang="ts">
+	import { goto } from '$app/navigation';
 	import '../app.css';
+	let { data } = $props();
 
-	let isDropdownOpen = false; // default state (dropdown close)
+	// let isDropdownOpen = false; // default state (dropdown close)
 
-	const handleDropdownClick = () => {
-		isDropdownOpen = !isDropdownOpen; // togle state on click
-	};
+	// const handleDropdownClick = () => {
+	// 	isDropdownOpen = !isDropdownOpen; // togle state on click
+	// };
+
+	$effect(() => {
+		if (data.isAuthenticated) {
+			goto('/Gold');
+		} else {
+			goto('/');
+		}
+	});
 </script>
 
-<div class="bg-gray-100 h-full flex flex-col min-w-full">
+<div class="bg-gray-50 h-full flex flex-col min-w-full">
 	<div class="h-12 bg-amber-400 w-full p-2 flex flex-row justify-between drop-shadow-xl gap-4">
 		<a href="/"><h1 class="text-blue-800 text-2xl font-bold ml-4">Goldie</h1></a>
 		<ul class="flex flex-row justify-end gap-2 text-white font-bold">
 			<li><a href="/#/about">About</a></li>
 			<li><a href="/#/contact">Contact</a></li>
 			<li>
+				<form action="?/logout">
+					<button type="submit">Logout</button>
+				</form>
+			</li>
+			<!-- <li>
 				<div class="dropdown">
 					<button class="btn m-1" on:click={handleDropdownClick}>
 						{#if isDropdownOpen}
@@ -57,7 +72,7 @@
 						<li><button class="btn text-slate-gray-400">EUR</button></li>
 					</ul>
 				</div>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 
@@ -66,6 +81,6 @@
 
 <style lang="postcss">
 	:global(body) {
-		@apply flex min-h-screen bg-gray-100;
+		@apply flex min-h-screen bg-gray-50;
 	}
 </style>

@@ -3,7 +3,7 @@
 	let { goldItem } = data;
 </script>
 
-<div class="bg-gray-100 flex flex-col m-8">
+<div class="bg-gray-50 flex flex-col m-8">
 	<header>
 		<h1 class="text-2xl text-blue-800 font-bold p-1">{goldItem}</h1>
 	</header>
