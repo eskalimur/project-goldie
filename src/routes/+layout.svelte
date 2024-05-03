@@ -18,9 +18,13 @@
 	});
 </script>
 
-<div class="bg-gray-50 h-full flex flex-col min-w-full">
-	<div class="h-12 bg-amber-400 w-full p-2 flex flex-row justify-between drop-shadow-xl gap-4">
-		<a href="/"><h1 class="text-blue-800 text-2xl font-bold ml-4">Goldie</h1></a>
+<div class="h-full flex flex-col min-w-full">
+	<div
+		class="h-18 bg-gradient-to-l from-amber-500 to-amber-300 w-full p-2 flex flex-row justify-between drop-shadow-l gap-4"
+	>
+		<a href="/">
+			<img src="../src/lib/images/goldie_logo.png" class="h-12" />
+		</a>
 		<ul class="flex flex-row justify-end gap-2 text-white font-bold">
 			<li><a href="/#/about">About</a></li>
 			<li><a href="/#/contact">Contact</a></li>
@@ -81,6 +85,6 @@
 
 <style lang="postcss">
 	:global(body) {
-		@apply flex min-h-screen bg-gray-50;
+		@apply flex min-h-screen bg-gradient-to-b from-gray-100 to-gray-200;
 	}
 </style>

@@ -1,4 +1,5 @@
 import { GOLD_API_KEY } from '$env/static/private';
+import { getGoldItems } from '$lib/services/goldService';
 
 export async function load({ fetch, params }) {
 	let url = new URL('https://api.metals.dev/v1/latest');
@@ -9,8 +10,9 @@ export async function load({ fetch, params }) {
 	url.searchParams.append('unit', unit);
 	// const res = await fetch("https://api.metals.dev/v1/latest?api_key=TVCED7BFAJ1RTPDGGCJH706DGGCJH&currency=USD&unit=toz");
 	// const data = await res.json();
-	const data = {
-		data: {
+	const data = {		
+	itemData : getGoldItems().sort((a, b) => a.weight - b.weight),
+		priceData: {
 			status: 'success',
 			currency: 'USD',
 			unit: 'toz',
