@@ -1,3 +1,5 @@
+<img src="./src/lib/images/goldie_logo_background.png" class="w-full"/>
+
 # Project Goldie
 A web application to tell you goldprices based on common items.
 
