@@ -4,7 +4,7 @@
 A web application to tell you goldprices based on common items.
 
 ### Preview
-/// INSERT IMAGE
+<img src="./src/lib/images/goldie_preview.png" class="w-full"/>
 
 ## Description
 A web application to tell you goldprices based on common items.
