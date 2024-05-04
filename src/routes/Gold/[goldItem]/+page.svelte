@@ -6,6 +6,10 @@
 	let { goldItem } = data;
 
 	let item = getGoldItem(goldItem);
+
+	function getImg(imgName: string) {
+		return '../src/lib/images/' + imgName;
+	}
 </script>
 
 <div class="flex flex-col m-8 h-full">
@@ -23,7 +27,7 @@
 		<div class="m-6 flex flex-row gap-4">
 			<img
 				width="150"
-				src={item?.img ?? 'https://via.placeholder.com/150'}
+				src={item?.img ? getImg(item.img) : 'https://via.placeholder.com/150'}
 				alt="Card Image"
 				class="rounded-sm"
 			/>

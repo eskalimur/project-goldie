@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { removeGoldItem } from '$lib/services/goldService';
-	import chains from '../../lib/images/chains.png';
 
 	export let item: {
 		name: string;
@@ -9,11 +8,10 @@
 		img?: string;
 		url: string;
 	};
+
 	export let goldprice: number;
 
 	function getImg(imgName: string) {
-		console.log('../../lib/images/' + imgName);
-
 		return '../src/lib/images/' + imgName;
 	}
 </script>
@@ -43,12 +41,14 @@
 		<div class="flex flex-col p-4">
 			<div class="flex items-center">
 				<div class="w-1/2">
+					<!-- {#await import(`$lib/images/${item.img}`) then { default: src }} -->
 					<img
 						width="150"
 						src={item.img ? getImg(item.img) : 'https://via.placeholder.com/150'}
 						alt="Card Image"
 						class="rounded-sm"
 					/>
+					<!-- {/await} -->
 				</div>
 				<div class="w-1/2 flex justify-end self-end text-xl">
 					<p>

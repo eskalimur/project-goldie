@@ -26,9 +26,8 @@
 		<a href="/">
 			<img src={logo} class="h-12" />
 		</a>
-		<ul class="flex flex-row justify-end gap-2 text-white font-bold">
-			<li><a href="/#/about">About</a></li>
-			<li><a href="/#/contact">Contact</a></li>
+		<ul class="flex flex-row justify-end gap-2 text-white font-bold text-xl items-center mr-8">
+			<li><a href="/Impressum">Impressum</a></li>
 			<li>
 				<form action="?/logout">
 					<button type="submit">Logout</button>
