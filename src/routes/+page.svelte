@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import logo from '../lib/images/goldie_logo.png';
 
 	let { form } = $props();
 
@@ -11,7 +12,7 @@
 </svelte:head>
 
 <div class="flex item-center justify-center flex-col p-8 items-center gap-4">
-	<img src="../src/lib/images/goldie_logo.png" class="w-1/4" />
+	<img src={logo} class="w-1/4" />
 	<div
 		class="gap-4 flex flex-col border px-4 py-6 rounded-xl bg-amber-400 drop-shadow-sm w-1/3 items-center"
 	>
