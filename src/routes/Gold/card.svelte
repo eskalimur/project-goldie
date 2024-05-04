@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { removeGoldItem } from '$lib/services/goldService';
+	import chains from '../../lib/images/chains.png';
 
 	export let item: {
 		name: string;
@@ -9,6 +10,12 @@
 		url: string;
 	};
 	export let goldprice: number;
+
+	function getImg(imgName: string) {
+		console.log('../../lib/images/' + imgName);
+
+		return '../src/lib/images/' + imgName;
+	}
 </script>
 
 <div class="border border-solid rounded-xl bg-white drop-shadow-xl">
@@ -38,7 +45,7 @@
 				<div class="w-1/2">
 					<img
 						width="150"
-						src={item.img ?? 'https://via.placeholder.com/150'}
+						src={item.img ? getImg(item.img) : 'https://via.placeholder.com/150'}
 						alt="Card Image"
 						class="rounded-sm"
 					/>
