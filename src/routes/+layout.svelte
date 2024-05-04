@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import '../app.css';
+	import logo from '../lib/images/goldie_logo.png';
 	let { data } = $props();
 
 	// let isDropdownOpen = false; // default state (dropdown close)
@@ -23,7 +24,7 @@
 		class="h-18 bg-gradient-to-l from-amber-500 to-amber-300 w-full p-2 flex flex-row justify-between drop-shadow-l gap-4"
 	>
 		<a href="/">
-			<img src="../src/lib/images/goldie_logo.png" class="h-12" />
+			<img src={logo} class="h-12" />
 		</a>
 		<ul class="flex flex-row justify-end gap-2 text-white font-bold">
 			<li><a href="/#/about">About</a></li>
