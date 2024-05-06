@@ -10,8 +10,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 export const actions: Actions = {
 	login: async ({ request, cookies }) => {
-		console.log('loginAction');
-
 		const credentials = await request.formData();
 		const email = credentials.get('email') as string;
 		const password = credentials.get('password') as string;
@@ -21,7 +19,6 @@ export const actions: Actions = {
 		}
 
 		let authenticated = authenticate(cookies, email, password);
-		console.log(authenticated);
 
 		if (authenticated) {
 			throw redirect(307, '/Gold');
@@ -30,8 +27,6 @@ export const actions: Actions = {
 		}
 	},
 	logout: async ({ cookies }) => {
-		console.log('logoutAction');
-
 		authServiceLogout(cookies);
 	}
 };

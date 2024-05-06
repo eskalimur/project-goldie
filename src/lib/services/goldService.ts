@@ -46,8 +46,6 @@ const goldItems = [
 let currentGoldItems = goldItems;
 
 export const getGoldItems = () => {
-	console.log(currentGoldItems);
-
 	return currentGoldItems;
 };
 
@@ -56,12 +54,8 @@ export const addGoldItem = (item: any) => {
 };
 
 export const removeGoldItem = (name: string) => {
-	console.log(name);
-
-	console.log(currentGoldItems);
 	let removeIndex = currentGoldItems.findIndex((item) => item.name === name);
-	console.log(removeIndex, currentGoldItems.splice(removeIndex, 1));
-	console.log(currentGoldItems);
+	currentGoldItems.splice(removeIndex, 1);
 };
 
 export const updateGoldItem = (name: string, item: any) => {

@@ -12,6 +12,8 @@
 		};
 		goldprice: number;
 	}>();
+	const images = import.meta.glob('$lib/images/*.png', { eager: true });
+	console.log(images);
 
 	function getImg(imgName: string) {
 		return '../src/lib/images/' + imgName;
@@ -34,8 +36,6 @@
 				>
 				<button
 					onclick={() => {
-						console.log('Delete', item.name);
-
 						removeGoldItem(item.name);
 						reloadItems();
 					}}
@@ -47,9 +47,12 @@
 			<div class="flex items-center">
 				<div class="w-1/2">
 					<!-- {#await import(`$lib/images/${item.img}`) then { default: src }} -->
+
 					<img
 						width="150"
-						src={item.img ? getImg(item.img) : 'https://via.placeholder.com/150'}
+						src={item.img
+							? images[`/src/lib/images/${item.img}`].default
+							: 'https://via.placeholder.com/150'}
 						alt="Card Image"
 						class="rounded-sm"
 					/>
