@@ -1,22 +1,12 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import '../app.css';
 	import logo from '../lib/images/goldie_logo.png';
-	let { data } = $props();
 
 	// let isDropdownOpen = false; // default state (dropdown close)
 
 	// const handleDropdownClick = () => {
 	// 	isDropdownOpen = !isDropdownOpen; // togle state on click
 	// };
-
-	$effect(() => {
-		if (data.isAuthenticated) {
-			goto('/Gold');
-		} else {
-			goto('/');
-		}
-	});
 </script>
 
 <div class="h-full flex flex-col min-w-full">
@@ -29,7 +19,7 @@
 		<ul class="flex flex-row justify-end gap-2 text-white font-bold text-xl items-center mr-8">
 			<li><a href="/Impressum">Impressum</a></li>
 			<li>
-				<form action="?/logout">
+				<form action="/?/logout" method="POST">
 					<button type="submit">Logout</button>
 				</form>
 			</li>

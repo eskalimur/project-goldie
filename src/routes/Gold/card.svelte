@@ -2,14 +2,16 @@
 	import { goto } from '$app/navigation';
 	import { removeGoldItem } from '$lib/services/goldService';
 
-	export let item: {
-		name: string;
-		weight: number;
-		img?: string;
-		url: string;
-	};
-
-	export let goldprice: number;
+	const { reloadItems, item, goldprice } = $props<{
+		reloadItems: () => void;
+		item: {
+			name: string;
+			weight: number;
+			img?: string;
+			url: string;
+		};
+		goldprice: number;
+	}>();
 
 	function getImg(imgName: string) {
 		return '../src/lib/images/' + imgName;
@@ -32,7 +34,10 @@
 				>
 				<button
 					onclick={() => {
+						console.log('Delete', item.name);
+
 						removeGoldItem(item.name);
+						reloadItems();
 					}}
 					class="bg-slate-600 text-white px-4 py-2 rounded-sm ml-2">Delete</button
 				>

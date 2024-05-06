@@ -10,8 +10,7 @@ export async function load({ fetch, params }) {
 	url.searchParams.append('unit', unit);
 	// const res = await fetch("https://api.metals.dev/v1/latest?api_key=TVCED7BFAJ1RTPDGGCJH706DGGCJH&currency=USD&unit=toz");
 	// const data = await res.json();
-	const data = {		
-	itemData : getGoldItems().sort((a, b) => a.weight - b.weight),
+	const data = {
 		priceData: {
 			status: 'success',
 			currency: 'USD',

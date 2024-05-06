@@ -1,10 +1,21 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 	import logo from '../lib/images/goldie_logo.png';
 
-	let { form } = $props();
+	let { form, data } = $props();
 
 	let authenticating = $state(false);
+
+	let authenticated = $derived(data.isAuthenticated);
+
+	$effect(() => {
+		if (authenticated) {
+			goto('/Gold');
+		} else {
+			goto('/');
+		}
+	});
 </script>
 
 <svelte:head>
