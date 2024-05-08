@@ -11,6 +11,10 @@
 	const images = import.meta.glob('$lib/images/*.png', { eager: true });
 </script>
 
+<svelte:head>
+	<title>Goldie - Item: {item?.name}</title>
+</svelte:head>
+
 <div class="flex flex-col m-8 h-full">
 	<header class="flex flex-row gap-4 mb-2">
 		<button

@@ -22,8 +22,10 @@
 		<h1 class="text-3xl font-bold m-4 text-gray-800">
 			{goldprice.toLocaleString('en', {
 				notation: 'standard',
+				style: 'currency',
+				currency: 'USD',
 				compactDisplay: 'long'
-			})},- USD
+			})}
 		</h1>
 	</div>
 	<div class="grid grid-cols-2 gap-4">

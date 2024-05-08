@@ -54,8 +54,10 @@
 					<p>
 						Price: {(goldprice * item.weight).toLocaleString('en', {
 							notation: 'standard',
+							style: 'currency',
+							currency: 'USD',
 							compactDisplay: 'long'
-						})},- USD
+						})}
 					</p>
 				</div>
 			</div>
