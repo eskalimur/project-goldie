@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import { getGoldItem } from '$lib/services/goldService.js';
 
@@ -34,8 +35,18 @@
 			<form
 				class="flex flex-row gap-4 justify-center items-center
 			"
+				method="POST"
+				action="?/updateItem"
+				use:enhance
 			>
 				<div class="grid grid-col-3 gap-4">
+					<input
+						type="hidden"
+						name="original_name"
+						placeholder="Name"
+						value={item?.name}
+						class="rounded p-1 text-gray-400 border border-solid-1 border-amber-200"
+					/>
 					<input
 						type="text"
 						name="name"

@@ -4,9 +4,7 @@
 	import logo from '../lib/images/goldie_logo.png';
 
 	let { form, data } = $props();
-
 	let authenticating = $state(false);
-
 	let authenticated = $derived(data.isAuthenticated);
 
 	$effect(() => {

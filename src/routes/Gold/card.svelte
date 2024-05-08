@@ -13,11 +13,6 @@
 		goldprice: number;
 	}>();
 	const images = import.meta.glob('$lib/images/*.png', { eager: true });
-	console.log(images);
-
-	function getImg(imgName: string) {
-		return '../src/lib/images/' + imgName;
-	}
 </script>
 
 <div class="border border-solid rounded-xl bg-white drop-shadow-xl">
@@ -46,8 +41,6 @@
 		<div class="flex flex-col p-4">
 			<div class="flex items-center">
 				<div class="w-1/2">
-					<!-- {#await import(`$lib/images/${item.img}`) then { default: src }} -->
-
 					<img
 						width="150"
 						src={item.img
@@ -56,7 +49,6 @@
 						alt="Card Image"
 						class="rounded-sm"
 					/>
-					<!-- {/await} -->
 				</div>
 				<div class="w-1/2 flex justify-end self-end text-xl">
 					<p>

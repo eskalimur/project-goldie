@@ -1,5 +1,5 @@
 import { authenticate, logout as authServiceLogout } from '$lib/services/authenticationService';
-import { fail, redirect, type Actions, type ServerLoad } from '@sveltejs/kit';
+import { fail, type Actions } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
@@ -20,11 +20,7 @@ export const actions: Actions = {
 
 		let authenticated = authenticate(cookies, email, password);
 
-		if (authenticated) {
-			throw redirect(307, '/Gold');
-		} else {
-			return fail(401, { invalid: true });
-		}
+		if (!authenticated) return fail(401, { invalid: true });
 	},
 	logout: async ({ cookies }) => {
 		authServiceLogout(cookies);

@@ -58,11 +58,16 @@ export const removeGoldItem = (name: string) => {
 	currentGoldItems.splice(removeIndex, 1);
 };
 
-export const updateGoldItem = (name: string, item: any) => {
-	let updateIndex = currentGoldItems.findIndex((item) => item.name === name);
-	currentGoldItems[updateIndex] = item;
+export const updateGoldItem = (originalName: string, name: string, weight: string) => {
+	let updateIndex = currentGoldItems.findIndex((item) => item.name === originalName);
+	currentGoldItems[updateIndex].name = name;
+	currentGoldItems[updateIndex].weight = parseFloat(weight);
 };
 
 export const getGoldItem = (name: string) => {
+	console.log(
+		'getGoldItem',
+		goldItems.find((item) => item.url === name)
+	);
 	return goldItems.find((item) => item.url === name);
 };

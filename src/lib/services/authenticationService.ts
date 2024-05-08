@@ -1,8 +1,7 @@
 import { dev } from '$app/environment';
-import type { Cookies } from '@sveltejs/kit';
+import { type Cookies } from '@sveltejs/kit';
 import { JWT_PRIVATE_KEY } from '$env/static/private';
 import jsonwebtoken from 'jsonwebtoken';
-import { goto } from '$app/navigation';
 
 type user = {
 	email: string;
@@ -40,15 +39,13 @@ export const authenticate = (cookies: Cookies, email: string, password: string) 
 
 export const logout = (cookies: Cookies) => {
 	removeCookie(cookies);
-	return () => {
-		goto('/');
-	};
 };
 
 export const isAuthenticated = (cookies: Cookies) => {
 	const jwt = cookies.get('Authentication_');
 
 	if (!jwt) {
+		console.log('user is authenticated: ', false);
 		return false;
 	}
 
@@ -56,7 +53,8 @@ export const isAuthenticated = (cookies: Cookies) => {
 		const token = jwt.split(' ')[1];
 		const { id } = jsonwebtoken.verify(token, JWT_PRIVATE_KEY) as { id: string };
 		console.log(
-			'user is authenticated: ',
+			id,
+			' is authenticated: ',
 			users.some((user: user) => user.id === id)
 		);
 		return users.some((user: user) => user.id === id);
