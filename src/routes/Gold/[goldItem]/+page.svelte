@@ -8,9 +8,7 @@
 
 	let item = getGoldItem(goldItem);
 
-	function getImg(imgName: string) {
-		return '../src/lib/images/' + imgName;
-	}
+	const images = import.meta.glob('$lib/images/*.png', { eager: true });
 </script>
 
 <div class="flex flex-col m-8 h-full">
@@ -20,7 +18,11 @@
 				goto('/Gold');
 			}}
 		>
-			<img src="../src/lib/images/arrow.png" width="50" class="rotate-180" /></button
+			<img
+				src={images[`/src/lib/images/arrow.png`].default}
+				width="50"
+				class="rotate-180"
+			/></button
 		>
 		<h1 class="text-4xl text-blue-800 font-bold p-1">{item?.name}</h1>
 	</header>
@@ -28,7 +30,9 @@
 		<div class="m-6 flex flex-row gap-4">
 			<img
 				width="150"
-				src={item?.img ? getImg(item.img) : 'https://via.placeholder.com/150'}
+				src={item?.img
+					? images[`/src/lib/images/${item.img}`].default
+					: 'https://via.placeholder.com/150'}
 				alt="Card Image"
 				class="rounded-sm"
 			/>
